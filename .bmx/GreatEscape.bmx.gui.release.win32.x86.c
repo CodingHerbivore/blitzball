@@ -198,19 +198,19 @@ int _bb_main(){
 		BBINT bbt_px=256;
 		BBINT bbt_py=400;
 		BBINT bbt_lives=3;
-		BBINT bbt_bx=0;
+		BBINT bbt_bx=300;
 		BBINT bbt_by=0;
-		BBINT bbt_sx=0;
-		BBINT bbt_sy=0;
+		BBFLOAT bbt_sx=0.000000000f;
+		BBFLOAT bbt_sy=0.000000000f;
 		BBINT bbt_score=0;
 		brl_system_HideMouse();
-		while(!(brl_polledinput_KeyHit(27)!=0)){
+		while(!(brl_polledinput_KeyHit(27)!=0) && !(brl_polledinput_AppTerminate()!=0)){
 			BBSTRING bbt_m=&bbEmptyString;
 			brl_max2d_Cls();
 			_m_GreatEscape_DrawGradient(24);
 			brl_max2d_DrawImage((struct brl_max2d_image_TImage_obj*)bbt_ball,((BBFLOAT)bbt_bx),((BBFLOAT)bbt_by),0);
 			brl_max2d_DrawImage((struct brl_max2d_image_TImage_obj*)bbt_bat,((BBFLOAT)bbt_px),((BBFLOAT)bbt_py),0);
-			if(bbt_sx==0){
+			if(bbt_sx==0.000000000f){
 				bbt_m=&_s13;
 				brl_max2d_DrawText(bbt_m,((BBFLOAT)((640-brl_max2d_TextWidth(bbt_m))/2)),240.000000f);
 				bbt_m=bbStringConcat(bbStringConcat(&_s14,bbStringFromInt(bbt_lives)),&_s15);
@@ -219,9 +219,9 @@ int _bb_main(){
 			bbt_m=bbStringConcat(bbStringConcat(bbStringConcat(bbStringConcat(&_s16,bbStringFromInt(bbt_score)),&_s17),bbStringFromInt(bbt_lives)),&_s18);
 			brl_max2d_DrawText(bbt_m,((BBFLOAT)((640-brl_max2d_TextWidth(bbt_m))/2)),0.000000000f);
 			bbt_px=brl_polledinput_MouseX();
-			if((brl_polledinput_KeyHit(32)!=0) && (bbt_sx==0)){
-				bbt_sx=4;
-				bbt_sy=4;
+			if((brl_polledinput_KeyHit(32)!=0) && (bbt_sx==0.000000000f)){
+				bbt_sx=4.00000000f;
+				bbt_sy=4.00000000f;
 			}
 			if(bbt_px<0){
 				bbt_px=0;
@@ -229,26 +229,36 @@ int _bb_main(){
 			if(bbt_px>512){
 				bbt_px=512;
 			}
-			bbt_bx=(bbt_bx+bbt_sx);
-			bbt_by=(bbt_by+bbt_sy);
+			bbt_bx=((BBINT)(((BBFLOAT)bbt_bx)+bbt_sx));
+			bbt_by=((BBINT)(((BBFLOAT)bbt_by)+bbt_sy));
 			if((bbt_bx<0) || (bbt_bx>616)){
-				bbt_sx=(bbt_sx*-1);
+				bbt_sx=(bbt_sx*-1.00000000f);
 			}
 			if(bbt_by<0){
 				bbt_by=0;
-				bbt_sy=(bbt_sy*-1);
+				bbt_sy=(bbt_sy*-1.00000000f);
 			}
 			if(bbt_by>bbt_py){
 				bbt_lives=(bbt_lives-1);
 				bbt_bx=0;
 				bbt_by=0;
-				bbt_sx=0;
-				bbt_sy=0;
+				bbt_sx=0.000000000f;
+				bbt_sy=0.000000000f;
 			}
 			if(brl_max2d_ImagesCollide((struct brl_max2d_image_TImage_obj*)bbt_bat,bbt_px,bbt_py,0,(struct brl_max2d_image_TImage_obj*)bbt_ball,bbt_bx,bbt_by,0)!=0){
 				bbt_by=(bbt_by-1);
-				bbt_sy=(bbt_sy*-1);
+				bbt_sy=(bbt_sy*-1.00000000f);
 				bbt_score=(bbt_score+1);
+				if(bbt_sy<0.000000000f){
+					bbt_sy=(bbt_sy-0.25f);
+				}else{
+					bbt_sy=(bbt_sy+0.25f);
+				}
+				if(bbt_sx<0.000000000f){
+					bbt_sx=(bbt_sx-0.25f);
+				}else{
+					bbt_sx=(bbt_sx+0.25f);
+				}
 			}
 			brl_graphics_Flip(-1);
 		}
