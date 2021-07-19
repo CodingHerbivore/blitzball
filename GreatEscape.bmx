@@ -35,7 +35,7 @@ Local score:Int = 0
 ' Hide the mouse pointer
 HideMouse
 
-While Not KeyHit(KEY_ESCAPE)
+While Not KeyHit(KEY_ESCAPE) And Not AppTerminate()
 	
 	Local m:String = ""
 	Cls

@@ -35,13 +35,13 @@ Local score:Int = 0
 ' Hide the mouse pointer
 HideMouse
 
-While Not KeyHit(KEY_ESCAPE)
+While Not KeyHit(KEY_ESCAPE) Or AppTerminate()
 	
 	Local m:String = ""
 	Cls
 	
 	DrawGradient(24)
-	
+	 
 	' Draw the ball and bat
 	DrawImage(ball, bx, by)
 	DrawImage(bat, px, py)
