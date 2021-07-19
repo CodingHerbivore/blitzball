@@ -35,7 +35,6 @@ Local score:Int = 0
 ' Hide the mouse pointer
 HideMouse
 
-#mainloop
 While Not KeyHit(KEY_ESCAPE)
 	
 	Local m:String = ""

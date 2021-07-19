@@ -41,7 +41,7 @@ While Not KeyHit(KEY_ESCAPE)
 	Cls
 	
 	DrawGradient(24)
-	
+	 
 	' Draw the ball and bat
 	DrawImage(ball, bx, by)
 	DrawImage(bat, px, py)
