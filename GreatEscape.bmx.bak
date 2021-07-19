@@ -11,7 +11,7 @@ Local py:Int = 400
 Local lives:Int = 3
 
 ' Control ball's position and speed. Will be changed later
-Local bx:Int = 0
+Local bx:Int = 300
 Local by:Int = 0
 Local sx:Int = 0
 Local sy:Int = 0
@@ -35,7 +35,7 @@ Local score:Int = 0
 ' Hide the mouse pointer
 HideMouse
 
-While Not KeyHit(KEY_ESCAPE) Or AppTerminate()
+While Not KeyHit(KEY_ESCAPE) And Not AppTerminate()
 	
 	Local m:String = ""
 	Cls
@@ -96,6 +96,18 @@ While Not KeyHit(KEY_ESCAPE) Or AppTerminate()
 		by = by - 1
 		sy = sy * -1
 		score = score + 1
+		' Increase speed for more of a challenge
+		If sy < 0
+			sy = sy - 1
+		Else
+			sy = sy + 1
+		End If
+		If sx < 0
+			sx = sx - 1
+		Else
+			sx = sx + 1
+		End If
+		
 	End If
 	
 	Flip

@@ -11,10 +11,10 @@ Local py:Int = 400
 Local lives:Int = 3
 
 ' Control ball's position and speed. Will be changed later
-Local bx:Int = 0
+Local bx:Int = 300
 Local by:Int = 0
-Local sx:Int = 0
-Local sy:Int = 0
+Local sx:Float = 0
+Local sy:Float = 0
 
 ' Draw Amiga-style gradient
 Function DrawGradient(increment:Int)
@@ -96,6 +96,18 @@ While Not KeyHit(KEY_ESCAPE) And Not AppTerminate()
 		by = by - 1
 		sy = sy * -1
 		score = score + 1
+		' Increase speed for more of a challenge
+		If sy < 0
+			sy = sy - 0.25
+		Else
+			sy = sy + 0.25
+		End If
+		If sx < 0
+			sx = sx - 0.25
+		Else
+			sx = sx + 0.25
+		End If
+		
 	End If
 	
 	Flip

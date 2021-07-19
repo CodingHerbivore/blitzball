@@ -266,8 +266,8 @@ int _bb_main(){
 		BBINT bbt_lives=0;
 		BBINT bbt_bx=0;
 		BBINT bbt_by=0;
-		BBINT bbt_sx=0;
-		BBINT bbt_sy=0;
+		BBFLOAT bbt_sx=0;
+		BBFLOAT bbt_sy=0;
 		BBINT bbt_score=0;
 		struct BBDebugScope_10 __scope = {
 			BBDEBUGSCOPE_FUNCTION,
@@ -318,13 +318,13 @@ int _bb_main(){
 				{
 					BBDEBUGDECL_LOCAL,
 					"sx",
-					"i",
+					"f",
 					.var_address=&bbt_sx
 				},
 				{
 					BBDEBUGDECL_LOCAL,
 					"sy",
-					"i",
+					"f",
 					.var_address=&bbt_sy
 				},
 				{
@@ -357,16 +357,16 @@ int _bb_main(){
 		bbt_lives=3;
 		struct BBDebugStm __stmt_6 = {0x4c32248fae840c76, 14, 0};
 		bbOnDebugEnterStm(&__stmt_6);
-		bbt_bx=0;
+		bbt_bx=300;
 		struct BBDebugStm __stmt_7 = {0x4c32248fae840c76, 15, 0};
 		bbOnDebugEnterStm(&__stmt_7);
 		bbt_by=0;
 		struct BBDebugStm __stmt_8 = {0x4c32248fae840c76, 16, 0};
 		bbOnDebugEnterStm(&__stmt_8);
-		bbt_sx=0;
+		bbt_sx=0.000000000f;
 		struct BBDebugStm __stmt_9 = {0x4c32248fae840c76, 17, 0};
 		bbOnDebugEnterStm(&__stmt_9);
-		bbt_sy=0;
+		bbt_sy=0.000000000f;
 		struct BBDebugStm __stmt_10 = {0x4c32248fae840c76, 33, 0};
 		bbOnDebugEnterStm(&__stmt_10);
 		bbt_score=0;
@@ -408,7 +408,7 @@ int _bb_main(){
 			brl_max2d_DrawImage((struct brl_max2d_image_TImage_obj*)bbt_bat,((BBFLOAT)bbt_px),((BBFLOAT)bbt_py),0);
 			struct BBDebugStm __stmt_5 = {0x4c32248fae840c76, 50, 0};
 			bbOnDebugEnterStm(&__stmt_5);
-			if(bbt_sx==0){
+			if(bbt_sx==0.000000000f){
 				struct BBDebugScope __scope = {
 					BBDEBUGSCOPE_LOCALBLOCK,
 					0,
@@ -442,7 +442,7 @@ int _bb_main(){
 			bbt_px=brl_polledinput_MouseX();
 			struct BBDebugStm __stmt_9 = {0x4c32248fae840c76, 62, 0};
 			bbOnDebugEnterStm(&__stmt_9);
-			if((brl_polledinput_KeyHit(32)!=0) && (bbt_sx==0)){
+			if((brl_polledinput_KeyHit(32)!=0) && (bbt_sx==0.000000000f)){
 				struct BBDebugScope __scope = {
 					BBDEBUGSCOPE_LOCALBLOCK,
 					0,
@@ -453,10 +453,10 @@ int _bb_main(){
 				bbOnDebugEnterScope(&__scope);
 				struct BBDebugStm __stmt_0 = {0x4c32248fae840c76, 63, 0};
 				bbOnDebugEnterStm(&__stmt_0);
-				bbt_sx=4;
+				bbt_sx=4.00000000f;
 				struct BBDebugStm __stmt_1 = {0x4c32248fae840c76, 64, 0};
 				bbOnDebugEnterStm(&__stmt_1);
-				bbt_sy=4;
+				bbt_sy=4.00000000f;
 				bbOnDebugLeaveScope();
 			}
 			struct BBDebugStm __stmt_10 = {0x4c32248fae840c76, 68, 0};
@@ -493,10 +493,10 @@ int _bb_main(){
 			}
 			struct BBDebugStm __stmt_12 = {0x4c32248fae840c76, 76, 0};
 			bbOnDebugEnterStm(&__stmt_12);
-			bbt_bx=(bbt_bx+bbt_sx);
+			bbt_bx=((BBINT)(((BBFLOAT)bbt_bx)+bbt_sx));
 			struct BBDebugStm __stmt_13 = {0x4c32248fae840c76, 77, 0};
 			bbOnDebugEnterStm(&__stmt_13);
-			bbt_by=(bbt_by+bbt_sy);
+			bbt_by=((BBINT)(((BBFLOAT)bbt_by)+bbt_sy));
 			struct BBDebugStm __stmt_14 = {0x4c32248fae840c76, 78, 0};
 			bbOnDebugEnterStm(&__stmt_14);
 			if((bbt_bx<0) || (bbt_bx>616)){
@@ -510,7 +510,7 @@ int _bb_main(){
 				bbOnDebugEnterScope(&__scope);
 				struct BBDebugStm __stmt_0 = {0x4c32248fae840c76, 79, 0};
 				bbOnDebugEnterStm(&__stmt_0);
-				bbt_sx=(bbt_sx*-1);
+				bbt_sx=(bbt_sx*-1.00000000f);
 				bbOnDebugLeaveScope();
 			}
 			struct BBDebugStm __stmt_15 = {0x4c32248fae840c76, 81, 0};
@@ -529,7 +529,7 @@ int _bb_main(){
 				bbt_by=0;
 				struct BBDebugStm __stmt_1 = {0x4c32248fae840c76, 83, 0};
 				bbOnDebugEnterStm(&__stmt_1);
-				bbt_sy=(bbt_sy*-1);
+				bbt_sy=(bbt_sy*-1.00000000f);
 				bbOnDebugLeaveScope();
 			}
 			struct BBDebugStm __stmt_16 = {0x4c32248fae840c76, 86, 0};
@@ -554,10 +554,10 @@ int _bb_main(){
 				bbt_by=0;
 				struct BBDebugStm __stmt_3 = {0x4c32248fae840c76, 90, 0};
 				bbOnDebugEnterStm(&__stmt_3);
-				bbt_sx=0;
+				bbt_sx=0.000000000f;
 				struct BBDebugStm __stmt_4 = {0x4c32248fae840c76, 91, 0};
 				bbOnDebugEnterStm(&__stmt_4);
-				bbt_sy=0;
+				bbt_sy=0.000000000f;
 				bbOnDebugLeaveScope();
 			}
 			struct BBDebugStm __stmt_17 = {0x4c32248fae840c76, 95, 0};
@@ -576,18 +576,76 @@ int _bb_main(){
 				bbt_by=(bbt_by-1);
 				struct BBDebugStm __stmt_1 = {0x4c32248fae840c76, 97, 0};
 				bbOnDebugEnterStm(&__stmt_1);
-				bbt_sy=(bbt_sy*-1);
+				bbt_sy=(bbt_sy*-1.00000000f);
 				struct BBDebugStm __stmt_2 = {0x4c32248fae840c76, 98, 0};
 				bbOnDebugEnterStm(&__stmt_2);
 				bbt_score=(bbt_score+1);
+				struct BBDebugStm __stmt_3 = {0x4c32248fae840c76, 100, 0};
+				bbOnDebugEnterStm(&__stmt_3);
+				if(bbt_sy<0.000000000f){
+					struct BBDebugScope __scope = {
+						BBDEBUGSCOPE_LOCALBLOCK,
+						0,
+						{
+							BBDEBUGDECL_END 
+						}
+					};
+					bbOnDebugEnterScope(&__scope);
+					struct BBDebugStm __stmt_0 = {0x4c32248fae840c76, 101, 0};
+					bbOnDebugEnterStm(&__stmt_0);
+					bbt_sy=(bbt_sy-0.25f);
+					bbOnDebugLeaveScope();
+				}else{
+					struct BBDebugScope __scope = {
+						BBDEBUGSCOPE_LOCALBLOCK,
+						0,
+						{
+							BBDEBUGDECL_END 
+						}
+					};
+					bbOnDebugEnterScope(&__scope);
+					struct BBDebugStm __stmt_0 = {0x4c32248fae840c76, 103, 0};
+					bbOnDebugEnterStm(&__stmt_0);
+					bbt_sy=(bbt_sy+0.25f);
+					bbOnDebugLeaveScope();
+				}
+				struct BBDebugStm __stmt_4 = {0x4c32248fae840c76, 105, 0};
+				bbOnDebugEnterStm(&__stmt_4);
+				if(bbt_sx<0.000000000f){
+					struct BBDebugScope __scope = {
+						BBDEBUGSCOPE_LOCALBLOCK,
+						0,
+						{
+							BBDEBUGDECL_END 
+						}
+					};
+					bbOnDebugEnterScope(&__scope);
+					struct BBDebugStm __stmt_0 = {0x4c32248fae840c76, 106, 0};
+					bbOnDebugEnterStm(&__stmt_0);
+					bbt_sx=(bbt_sx-0.25f);
+					bbOnDebugLeaveScope();
+				}else{
+					struct BBDebugScope __scope = {
+						BBDEBUGSCOPE_LOCALBLOCK,
+						0,
+						{
+							BBDEBUGDECL_END 
+						}
+					};
+					bbOnDebugEnterScope(&__scope);
+					struct BBDebugStm __stmt_0 = {0x4c32248fae840c76, 108, 0};
+					bbOnDebugEnterStm(&__stmt_0);
+					bbt_sx=(bbt_sx+0.25f);
+					bbOnDebugLeaveScope();
+				}
 				bbOnDebugLeaveScope();
 			}
-			struct BBDebugStm __stmt_18 = {0x4c32248fae840c76, 101, 0};
+			struct BBDebugStm __stmt_18 = {0x4c32248fae840c76, 113, 0};
 			bbOnDebugEnterStm(&__stmt_18);
 			brl_graphics_Flip(-1);
 			bbOnDebugLeaveScope();
 		}
-		struct BBDebugStm __stmt_13 = {0x4c32248fae840c76, 104, 0};
+		struct BBDebugStm __stmt_13 = {0x4c32248fae840c76, 116, 0};
 		bbOnDebugEnterStm(&__stmt_13);
 		brl_system_ShowMouse();
 		bbOnDebugLeaveScope();
